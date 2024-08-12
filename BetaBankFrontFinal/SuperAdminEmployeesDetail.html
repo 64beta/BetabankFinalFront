@@ -1,0 +1,2795 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link href="~/areaAssets/style.css?v=4L2yMMNjenCv5YvCYGSrXej5xNr3Li91mvDUUHr0vEA" rel="stylesheet" />
+
+    <link href="~/areaAssets/card.css?v=at9SC31LGSORHr902JrxQMjIdVcOtSCzIdjVeGYWcfo" rel="stylesheet" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/42.0.0/ckeditor5.js"></script>
+
+    <link rel="icon" href="~/areaAssets/images/betabank-favicon.png" type="image/x-icon">
+    <title>SuperAdmin | Detail</title>
+</head>
+<body>
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><img src="~/areaAssets/images/betabank-favicon.png" alt="betabank icon"><b>SuperAdmin Panel</b></a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarsExampleDefault"
+                    aria-controls="navbarsExampleDefault"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" id="Dashboard-nav-item">
+                    <a class="nav-link" href="~/SuperAdmin/Dashboard/Index">Dashboard</a>
+                </li>
+
+                <li class="nav-item dropdown" id="Moderator-nav-item">
+                    <a class="nav-link dropdown-toggle-2" href="#" id="moderatorDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Moderator <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="moderatorDropdown">
+                        <a class="dropdown-item" href="~/SuperAdmin/News/Index">News</a>
+                        <a class="dropdown-item" href="~/SuperAdmin/Subscribers/Index">Subscribers</a>
+                        <a class="dropdown-item" href="~/SuperAdmin/NotificationMails/Index">Notification Mails</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown" id="Admin-nav-item">
+                    <a class="nav-link dropdown-toggle-2" href="#" id="adminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="adminDropdown">
+                        <a class="dropdown-item" href="~/SuperAdmin/User/Index">Users</a>
+                        <a class="dropdown-item" href="~/SuperAdmin/Payment/Index">Payments</a>
+                        <a class="dropdown-item" href="~/SuperAdmin/BankCard/Index">Cards</a>
+                        <a class="dropdown-item" href="~/SuperAdmin/BankAccount/Index">Accounts</a>
+                        <a class="dropdown-item" href="~/SuperAdmin/CashBack/Index">Wallets</a>
+                    </div>
+                </li>
+                    
+                <li class="nav-item" id="User-nav-item">
+                    <a class="nav-link" href="~/SuperAdmin/Supports/Index">Supports</a>
+                </li>
+                <li class="nav-item" id="User-nav-item">
+                    <a class="nav-link" href="~/SuperAdmin/Employees/Index">Employees</a>
+                </li>
+                <li class="nav-item" id="User-nav-item">
+                    <a class="nav-link" href="~/SuperAdmin/Event/Index">Events</a>
+                </li>
+            </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white">Welcome, beta64</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="~/SuperAdmin/Auth/Logout">Logout</a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h3 class="font-weight-light">
+                        <i class="fas fa-user-shield"></i> Super Admin
+                        </h3>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="dropdown create">
+                            <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Actions
+                            </button>
+                            <!-- Make Links display modals from below-->
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 50px, 0px);">
+
+                                <a class="dropdown-item" href="~/SuperAdmin/News/Create">Create News</a>
+                                <a class="dropdown-item" href="~/SuperAdmin/NotificationMails/SendMail">Send Mail</a>
+                            <a class="dropdown-item" href="~/SuperAdmin/Subscribers/CreateSubscriber">Create Subscriber</a>
+
+                                <a class="dropdown-item" href="~/SuperAdmin/Employees/Create">Create Account</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+      
+
+        <section id="main">
+            <div class="container">
+                <div class="row">
+                    
+<div class="col-md-6">
+    <h2>User Details</h2>
+    <div class="card mb-4">
+        <div class="card-body">
+
+            <img id="profilePhoto" src="~/img/data/bcb67cd0-d355-477e-9ec9-bd0fb7be8c50-Screenshot 2024-08-10 090421.png" alt="Profile Photo" class="img-fluid  mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+            <h5 class="card-title">X&#x259;yal H&#x259;s&#x259;nov</h5>
+            <h6 class="card-title">xeyalvj</h6>
+            <p class="card-text">
+                <strong>Email:</strong> @code.edu.az<br>
+                <strong>Email Confirmed:</strong> True<br>
+                <strong>Age:</strong> 18<br>
+                <strong>Date of Birth:</strong> 2006-02-22<br>
+                <strong>Phone Number:</strong> 0507932168<br>
+                <strong>Created Date:</strong> 2024-07-22<br>
+                <strong>Update Date:</strong> 2024-08-10<br>
+                <strong>Status:</strong>                     <span class="badge bg-success text-dark">Not Banned</span>
+                <strong>Status:</strong><span class="badge  bg-info text-dark">Admin</span>
+
+            </p>
+        </div>
+    </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <a class="btn btn-warning banBtn" href="~/SuperAdmin/Employees/BanUser/9f403bd3-652c-46e4-9e46-03cd361bd75e">Ban User</a>
+            <a class="btn btn-warning" href="~/SuperAdmin/Employees/Edit/9f403bd3-652c-46e4-9e46-03cd361bd75e">Edit User</a>
+            </div>
+        </div>
+</div>
+<div class="col-md-6">
+    <h2>Actions</h2>
+    <div class="card mb-4">
+        <div class="card-body">
+
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Section</th>
+                        <th scope="col">Action</th>
+                        <th scope="col">Entity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>
+                                Auth
+                            </td>
+                            <td>
+                                Logouted
+                            </td>
+                            <td>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/fffdfa44-ab18-4a15-896c-d38d727ea084">
+                                        <img src="~/img/data/9f4205e2-04ff-4297-92d0-48ea80d79638-Screenshot 2024-08-08 022552.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankAccount/Detail/9647225368">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankAccount/Detail/9647225368">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Dashboard
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/31cb398c-c601-465d-8286-f16e160febc0">
+                                        <img src="~/img/data/3b8f3862-2da6-436c-b535-0bec06935f13-Screenshot 2023-09-02 014815.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        Y&#x259;hya Camalzad&#x259;
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442643010606945">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *6945
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/fffdfa44-ab18-4a15-896c-d38d727ea084">
+                                        <img src="~/img/data/9f4205e2-04ff-4297-92d0-48ea80d79638-Screenshot 2024-08-08 022552.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442640239809341">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *9341
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/d54a8354-5a03-4c76-99c3-02211f612636">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *907083
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/f8e4348f-cdfb-4212-8233-d854188ad42a">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *088455
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/5e86a15f-f929-47dd-8fd6-0337d92ff9a1">
+                                        <img src="~/img/data/default.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        U&#x11F;ur Nabatzad&#x259;
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Subscribers
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+CreateSubscriber
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Subscribers
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+CreateSubscriber
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/5e86a15f-f929-47dd-8fd6-0337d92ff9a1">
+                                        <img src="~/img/data/default.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        U&#x11F;ur Nabatzad&#x259;
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Supports
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                News
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Dashboard
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Auth
+                            </td>
+                            <td>
+                                Logined
+                            </td>
+                            <td>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Auth
+                            </td>
+                            <td>
+                                Logouted
+                            </td>
+                            <td>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Dashboard
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Auth
+                            </td>
+                            <td>
+                                Logined
+                            </td>
+                            <td>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Auth
+                            </td>
+                            <td>
+                                Logouted
+                            </td>
+                            <td>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442648175864421">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *4421
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/1878d6ae-461d-4df3-8ee4-5d295f50390b">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *228198
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442647109432996">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *2996
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/fffdfa44-ab18-4a15-896c-d38d727ea084">
+                                        <img src="~/img/data/9f4205e2-04ff-4297-92d0-48ea80d79638-Screenshot 2024-08-08 022552.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankAccount/Detail/0620995680">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        U&#x11F;ur Nabatzad&#x259;
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/5e86a15f-f929-47dd-8fd6-0337d92ff9a1">
+                                        <img src="~/img/data/default.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        U&#x11F;ur Nabatzad&#x259;
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Subscribers
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Supports
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                NotificationMail
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Dashboard
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Auth
+                            </td>
+                            <td>
+                                Logined
+                            </td>
+                            <td>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Auth
+                            </td>
+                            <td>
+                                Logouted
+                            </td>
+                            <td>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Subscribers
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Subscribers
+                            </td>
+                            <td>
+                                MakeSubscribed
+                            </td>
+                            <td>
+                                    <a style="color:#74FA56;" href="~/SuperAdmin/Subscribers/Index">
+                                        @gmail.com
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Subscribers
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+CreateSubscriber
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/fffdfa44-ab18-4a15-896c-d38d727ea084">
+                                        <img src="~/img/data/9f4205e2-04ff-4297-92d0-48ea80d79638-Screenshot 2024-08-08 022552.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankAccount/Detail/9647225368">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                MakeActive
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankAccount/Detail/9647225368">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankAccount/Detail/9647225368">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Suspended
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankAccount/Detail/9647225368">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankAccount/Detail/9647225368">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442643010606945">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *6945
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                MakeActive
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442643010606945">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *6945
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442643010606945">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *6945
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/dcaa16ea-df9f-4cec-9d54-2c3be142e246">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *101969
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/7dcb397c-a595-4f16-bca1-85166d76fd96">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *148747
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Supports
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                NotificationMail
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                NotificationMail
+                            </td>
+                            <td>
+                                Send
+                            </td>
+                            <td>
+                                    <a style="color:#74FA56;" href="~/SuperAdmin/NotificationMails/Detail/e8699e79-7495-4314-994e-9fa45413aee6">
+                                        Salam
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                NotificationMail
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Send Mail
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Supports
+                            </td>
+                            <td>
+                                Searched
+                            </td>
+                            <td>
+nb
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Supports
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Supports
+                            </td>
+                            <td>
+                                Answered
+                            </td>
+                            <td>
+                                    <a style="color:#74FA56;" href="~/SuperAdmin/Supports/ManageSupport/b990f8b6-2757-4259-8fe5-b9d92aad58d2">
+                                        resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Supports
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#74FA56;" href="~/SuperAdmin/Supports/ManageSupport/b990f8b6-2757-4259-8fe5-b9d92aad58d2">
+                                        resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Supports
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Supports
+                            </td>
+                            <td>
+                                Passed
+                            </td>
+                            <td>
+                                    <a style="color:#74FA56;" href="~/SuperAdmin/Supports/ManageSupport/55eaca43-f62a-466f-84b7-2020dac42cdc">
+                                        Amil Abdullazade
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Supports
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#74FA56;" href="~/SuperAdmin/Supports/ManageSupport/55eaca43-f62a-466f-84b7-2020dac42cdc">
+                                        Amil Abdullazade
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Supports
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Supports
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#74FA56;" href="~/SuperAdmin/Supports/ManageSupport/4b3ee1a3-eddb-4b70-9727-cbd9e006e72c">
+                                        Murad M&#x259;h&#x259;rr&#x259;mli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Supports
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                NotificationMail
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                NotificationMail
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#74FA56;" href="~/SuperAdmin/NotificationMails/Detail/40089b8d-2f25-4ebc-96d5-4b2e2c23f544">
+                                        sdasassad
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                NotificationMail
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Subscribers
+                            </td>
+                            <td>
+                                Searched
+                            </td>
+                            <td>
+df
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Subscribers
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Subscribers
+                            </td>
+                            <td>
+                                MakeSubscribed
+                            </td>
+                            <td>
+                                    <a style="color:#74FA56;" href="~/SuperAdmin/Subscribers/Index">
+                                        @gmail.com
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Subscribers
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Subscribers
+                            </td>
+                            <td>
+                                MakeUnsubscribed
+                            </td>
+                            <td>
+                                    <a style="color:#74FA56;" href="~/SuperAdmin/Subscribers/Index">
+                                        @gmail.com
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Subscribers
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                News
+                            </td>
+                            <td>
+                                Searched
+                            </td>
+                            <td>
+nc
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                News
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Dashboard
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Auth
+                            </td>
+                            <td>
+                                Logined
+                            </td>
+                            <td>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Auth
+                            </td>
+                            <td>
+                                Logouted
+                            </td>
+                            <td>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                NotificationMail
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Subscribers
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                News
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Dashboard
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/fffdfa44-ab18-4a15-896c-d38d727ea084">
+                                        <img src="~/img/data/9f4205e2-04ff-4297-92d0-48ea80d79638-Screenshot 2024-08-08 022552.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/fffdfa44-ab18-4a15-896c-d38d727ea084">
+                                        <img src="~/img/data/9f4205e2-04ff-4297-92d0-48ea80d79638-Screenshot 2024-08-08 022552.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *8831
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/dcaa16ea-df9f-4cec-9d54-2c3be142e246">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *101969
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/dcaa16ea-df9f-4cec-9d54-2c3be142e246">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *101969
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/4b814662-f07f-4f66-88a2-d4f831c6f4ff">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *134675
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/b5131719-1d6c-4e29-ae03-6d1756f7f596">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *683314
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/7dcb397c-a595-4f16-bca1-85166d76fd96">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *148747
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/b5131719-1d6c-4e29-ae03-6d1756f7f596">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *683314
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/4b814662-f07f-4f66-88a2-d4f831c6f4ff">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *134675
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/4b814662-f07f-4f66-88a2-d4f831c6f4ff">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *134675
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Dashboard
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Auth
+                            </td>
+                            <td>
+                                Logined
+                            </td>
+                            <td>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/b5131719-1d6c-4e29-ae03-6d1756f7f596">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *683314
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/b5131719-1d6c-4e29-ae03-6d1756f7f596">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *683314
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/b5131719-1d6c-4e29-ae03-6d1756f7f596">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *683314
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/b5131719-1d6c-4e29-ae03-6d1756f7f596">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *683314
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/b5131719-1d6c-4e29-ae03-6d1756f7f596">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *683314
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/b5131719-1d6c-4e29-ae03-6d1756f7f596">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *683314
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/93f5372f-bfa6-4e96-98c7-2aa5cbce195a">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *493914
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/b5131719-1d6c-4e29-ae03-6d1756f7f596">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *683314
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/b5131719-1d6c-4e29-ae03-6d1756f7f596">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *683314
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/4d2d7116-3b05-4003-adba-2d54ee4500a2">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *149448
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/4d2d7116-3b05-4003-adba-2d54ee4500a2">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *149448
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/4d2d7116-3b05-4003-adba-2d54ee4500a2">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *149448
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/afbe07fa-c967-4dbd-9a4d-1924cfdf279f">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *408934
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/4d2d7116-3b05-4003-adba-2d54ee4500a2">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *149448
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/4d2d7116-3b05-4003-adba-2d54ee4500a2">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *149448
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/4d2d7116-3b05-4003-adba-2d54ee4500a2">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *149448
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Dashboard
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Auth
+                            </td>
+                            <td>
+                                Logined
+                            </td>
+                            <td>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Payments
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/Payment/ViewMail/03cbe194-9904-4949-b8bb-8fae1398b691">
+                                        <img src="~/areaAssets/images/payment.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        *206133
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442647109432996">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *2996
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/31cb398c-c601-465d-8286-f16e160febc0">
+                                        <img src="~/img/data/3b8f3862-2da6-436c-b535-0bec06935f13-Screenshot 2023-09-02 014815.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        Y&#x259;hya Camalzad&#x259;
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442643010606945">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *6945
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Dashboard
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Auth
+                            </td>
+                            <td>
+                                Logined
+                            </td>
+                            <td>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/31cb398c-c601-465d-8286-f16e160febc0">
+                                        <img src="~/img/data/3b8f3862-2da6-436c-b535-0bec06935f13-Screenshot 2023-09-02 014815.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        Y&#x259;hya Camalzad&#x259;
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442647765587159">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *7159
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Disabled
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442647765587159">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *7159
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442647765587159">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *7159
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/31cb398c-c601-465d-8286-f16e160febc0">
+                                        <img src="~/img/data/3b8f3862-2da6-436c-b535-0bec06935f13-Screenshot 2023-09-02 014815.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        Y&#x259;hya Camalzad&#x259;
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442648175864421">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *4421
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Disabled
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442648175864421">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *4421
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442648175864421">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *4421
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/31cb398c-c601-465d-8286-f16e160febc0">
+                                        <img src="~/img/data/3b8f3862-2da6-436c-b535-0bec06935f13-Screenshot 2023-09-02 014815.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        Y&#x259;hya Camalzad&#x259;
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442643010606945">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *6945
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Disabled
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442643010606945">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *6945
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Cards
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankCard/Detail/6442643010606945">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid" style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                        *6945
+
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/User/Detail/31cb398c-c601-465d-8286-f16e160febc0">
+                                        <img src="~/img/data/3b8f3862-2da6-436c-b535-0bec06935f13-Screenshot 2023-09-02 014815.png" class="img-fluid rounded-circle" style="width: 45px; height: 45px; object-fit: cover;">
+                                        Y&#x259;hya Camalzad&#x259;
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Users
+                            </td>
+                            <td>
+                                Get
+                            </td>
+                            <td>
+Index
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankAccount/Detail/9647225368">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                MakeActive
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankAccount/Detail/9647225368">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankAccount/Detail/9647225368">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Suspended
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankAccount/Detail/9647225368">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+                        <tr>
+                            <td>
+                                Accounts
+                            </td>
+                            <td>
+                                Viewed
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/SuperAdmin/BankAccount/Detail/9647225368">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Resul Sadiqli
+                                    </a>
+
+                            </td>
+                       
+
+                        </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Profile Photo Modal -->
+<div class="modal fade" id="profilePhotoModal" tabindex="-1" role="dialog" aria-labelledby="profilePhotoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="profilePhotoModalLabel">Profile Photo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modalProfilePhoto" src="" alt="Profile Photo" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+                </div>
+            </div>
+        </section>
+        <!-- footer -->
+        <footer id="footer">
+            <p>BetaBank &copy; All Rights Reserved</p>
+        </footer>
+
+        <!-- Modals -->
+        <!-- Add Page Modal -->
+        <div class="modal fade" id="addPage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add Page</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Page Title</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Page Title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Page Body</label>
+                                    <textarea name="editor1" class="form-control" id="exampleFormControlTextarea1" placeholder="Page Body..." rows=""></textarea>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Published
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Meta Tags</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Add Some Tags...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Meta Description</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Add Meta Description">
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+            CKEDITOR.replace('editor1');
+        </script>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous"></script>
+   
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="~/backend/admin-script.js?v=ew9VuwcXOw7lVueK2Ox8bsQ_kGPnHDDkq5Oy-zwGdJ4"></script>
+
+
+        
+
+    <script>
+        $(document).ready(function () {
+            $('#profilePhoto').on('click', function () {
+                var imgSrc = $(this).attr('src');
+                $('#modalProfilePhoto').attr('src', imgSrc);
+                $('#profilePhotoModal').modal('show');
+            });
+        });
+    </script>
+
+
+
+<!-- Visual Studio Browser Link -->
+<script type="text/javascript" src="~/_vs/browserLink" async="async" id="__browserLink_initializationData" data-requestId="396dd5a6df654f9f8cb68a2bac08725e" data-requestMappingFromServer="false" data-connectUrl="http://localhost:51800/665a98e2faf6449989a67a42191d19ad/browserLink"></script>
+<!-- End Browser Link -->
+<script src="~/_framework/aspnetcore-browser-refresh.js"></script></body>
+</html>
+

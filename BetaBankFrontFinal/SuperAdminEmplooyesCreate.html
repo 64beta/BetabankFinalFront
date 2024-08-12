@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link href="~/areaAssets/style.css?v=4L2yMMNjenCv5YvCYGSrXej5xNr3Li91mvDUUHr0vEA" rel="stylesheet" />
+
+    <link href="~/areaAssets/card.css?v=at9SC31LGSORHr902JrxQMjIdVcOtSCzIdjVeGYWcfo" rel="stylesheet" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/42.0.0/ckeditor5.js"></script>
+
+    <link rel="icon" href="~/areaAssets/images/betabank-favicon.png" type="image/x-icon">
+    <title>SuperAdmin | Create</title>
+</head>
+<body>
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><img src="~/areaAssets/images/betabank-favicon.png" alt="betabank icon"><b>SuperAdmin Panel</b></a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarsExampleDefault"
+                    aria-controls="navbarsExampleDefault"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" id="Dashboard-nav-item">
+                    <a class="nav-link" href="~/SuperAdmin/Dashboard/Index">Dashboard</a>
+                </li>
+
+                <li class="nav-item dropdown" id="Moderator-nav-item">
+                    <a class="nav-link dropdown-toggle-2" href="#" id="moderatorDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Moderator <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="moderatorDropdown">
+                        <a class="dropdown-item" href="~/SuperAdmin/News/Index">News</a>
+                        <a class="dropdown-item" href="~/SuperAdmin/Subscribers/Index">Subscribers</a>
+                        <a class="dropdown-item" href="~/SuperAdmin/NotificationMails/Index">Notification Mails</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown" id="Admin-nav-item">
+                    <a class="nav-link dropdown-toggle-2" href="#" id="adminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="adminDropdown">
+                        <a class="dropdown-item" href="~/SuperAdmin/User/Index">Users</a>
+                        <a class="dropdown-item" href="~/SuperAdmin/Payment/Index">Payments</a>
+                        <a class="dropdown-item" href="~/SuperAdmin/BankCard/Index">Cards</a>
+                        <a class="dropdown-item" href="~/SuperAdmin/BankAccount/Index">Accounts</a>
+                        <a class="dropdown-item" href="~/SuperAdmin/CashBack/Index">Wallets</a>
+                    </div>
+                </li>
+                    
+                <li class="nav-item" id="User-nav-item">
+                    <a class="nav-link" href="~/SuperAdmin/Supports/Index">Supports</a>
+                </li>
+                <li class="nav-item" id="User-nav-item">
+                    <a class="nav-link" href="~/SuperAdmin/Employees/Index">Employees</a>
+                </li>
+                <li class="nav-item" id="User-nav-item">
+                    <a class="nav-link" href="~/SuperAdmin/Event/Index">Events</a>
+                </li>
+            </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white">Welcome, beta64</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="~/SuperAdmin/Auth/Logout">Logout</a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h3 class="font-weight-light">
+                        <i class="fas fa-user-shield"></i> Super Admin
+                        </h3>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="dropdown create">
+                            <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Actions
+                            </button>
+                            <!-- Make Links display modals from below-->
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 50px, 0px);">
+
+                                <a class="dropdown-item" href="~/SuperAdmin/News/Create">Create News</a>
+                                <a class="dropdown-item" href="~/SuperAdmin/NotificationMails/SendMail">Send Mail</a>
+                            <a class="dropdown-item" href="~/SuperAdmin/Subscribers/CreateSubscriber">Create Subscriber</a>
+
+                                <a class="dropdown-item" href="~/SuperAdmin/Employees/Create">Create Account</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+      
+
+        <section id="main">
+            <div class="container">
+                <div class="row">
+                    
+
+
+<div class="col-md-9 mt-sm-3 mt-md-0">
+    <!-- Panel for new entry creation -->
+    <div class="card">
+        <div class="card-header main-color-bg">
+            Create News
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data" action="/SuperAdmin/Employees/Create">
+               
+
+                <div class="form-group">
+                    <label >Username</label>
+                    <input class="form-control" placeholder="Enter Username" required type="text" data-val="true" data-val-regex="Username can only contain letters and numbers." data-val-regex-pattern="^[a-zA-Z0-9]&#x2B;$" data-val-required="Username is required." id="Username" name="Username" value="" />
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Username" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label >FIN</label>
+                    <input class="form-control" placeholder="Enter FIN" required type="text" data-val="true" data-val-length="FIN must be exactly 7 characters long." data-val-length-max="7" data-val-length-min="7" data-val-regex="FIN can only contain uppercase letters (A-Z) and digits (0-9)." data-val-regex-pattern="^[A-Z0-9]{7}$" data-val-required="The FIN field is required." id="FIN" maxlength="7" name="FIN" value="" />
+                    <span class="text-danger field-validation-valid" data-valmsg-for="FIN" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input class="form-control" placeholder="Enter Email" required type="email" data-val="true" data-val-required="The Email field is required." id="Email" name="Email" value="" />
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label >FirstName</label>
+                    <input class="form-control" placeholder="Enter FirstName" required type="text" data-val="true" data-val-regex="First name can only contain letters." data-val-regex-pattern="^[\p{L}]&#x2B;$" data-val-required="First name is required." id="FirstName" name="FirstName" value="" />
+                    <span class="text-danger field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label >LastName</label>
+                    <input class="form-control" placeholder="Enter LastName" required type="text" data-val="true" data-val-regex="Last name can only contain letters." data-val-regex-pattern="^[\p{L}]&#x2B;$" data-val-required="Last name is required." id="LastName" name="LastName" value="" />
+                    <span class="text-danger field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label>DateOfBirth</label>
+                    <input class="form-control" required type="date" data-val="true" data-val-required="The DateOfBirth field is required." id="DateOfBirth" name="DateOfBirth" value="" />
+                    <span class="text-danger field-validation-valid" data-valmsg-for="DateOfBirth" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label>PhoneNumber</label>
+                    <input class="form-control" placeholder="Enter PhoneNumber" required type="tel" data-val="true" data-val-required="The PhoneNumber field is required." id="PhoneNumber" name="PhoneNumber" value="" />
+                    <span class="text-danger field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label for="roleSelect">Role</label>
+                    <select class="form-control" id="roleSelect" required data-val="true" data-val-required="Role ID is required." name="RoleId">
+                            <option value="0e79b43a-ecd2-4796-b81d-61be7f78077a">Support</option>
+                            <option value="4e312dca-da7d-42bc-b591-38b8f7e346a3">Admin</option>
+                            <option value="7dbba64e-77ee-4423-ae56-ce60b0731ade">Moderator</option>
+                       
+                    </select>
+                    <span class="text-danger field-validation-valid" data-valmsg-for="RoleId" data-valmsg-replace="true"></span>
+                </div>
+                <div class="form-group">
+                    <label for="description">Biography</label>
+                    <textarea class="form-control" placeholder="Enter Biography" required rows="10" data-val="true" data-val-required="Biography is required." id="Biography" name="Biography">
+</textarea>
+                    <span class="text-danger field-validation-valid" data-valmsg-for="Biography" data-valmsg-replace="true"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ProfilePhoto">ProfilePhoto</label>
+                    <input class="form-control-file" name="ProfilePhoto" required type="file" id="ProfilePhoto" />
+                    <span class="text-danger field-validation-valid" data-valmsg-for="ProfilePhoto" data-valmsg-replace="true"></span>
+                </div>
+                
+                <div class="form-group">
+                    <input type="submit" class="btn main-color-bg" value="Create" />
+                    <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
+                </div>
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8EA64PJV225Os8kuP22wVjalvv5U-LDrac1AVwgIgbRx2iuiHetD8Hs8EI3HCdHAG-pB0VRDw8YaAMQiAGWqEgQCi_HvSobBncYPV4bsZRv5AKuA0voViJO7Tpl0mX8XPJ_3NwV5umchibLJoVmJSyOKoLKfCK2lLD-dxGe5enz55vziiIUNZgjYJzQBSYf1KA" /></form>
+        </div>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </section>
+        <!-- footer -->
+        <footer id="footer">
+            <p>BetaBank &copy; All Rights Reserved</p>
+        </footer>
+
+        <!-- Modals -->
+        <!-- Add Page Modal -->
+        <div class="modal fade" id="addPage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add Page</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Page Title</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Page Title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Page Body</label>
+                                    <textarea name="editor1" class="form-control" id="exampleFormControlTextarea1" placeholder="Page Body..." rows=""></textarea>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Published
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Meta Tags</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Add Some Tags...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Meta Description</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Add Meta Description">
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+            CKEDITOR.replace('editor1');
+        </script>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous"></script>
+   
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="~/backend/admin-script.js?v=ew9VuwcXOw7lVueK2Ox8bsQ_kGPnHDDkq5Oy-zwGdJ4"></script>
+
+
+        
+    <script>
+
+
+        document.getElementById("Employees-tab").classList.add("active", "main-color-bg");
+        
+
+
+    </script>
+
+
+
+<!-- Visual Studio Browser Link -->
+<script type="text/javascript" src="~/_vs/browserLink" async="async" id="__browserLink_initializationData" data-requestId="fa3a9c28f9b54f4e89886e0bc27456dd" data-requestMappingFromServer="false" data-connectUrl="http://localhost:51800/665a98e2faf6449989a67a42191d19ad/browserLink"></script>
+<!-- End Browser Link -->
+<script src="~/_framework/aspnetcore-browser-refresh.js"></script></body>
+</html>
+

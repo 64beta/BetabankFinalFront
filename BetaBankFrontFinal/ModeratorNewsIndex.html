@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <link href="~/areaAssets/style.css?v=4L2yMMNjenCv5YvCYGSrXej5xNr3Li91mvDUUHr0vEA" rel="stylesheet" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/42.0.0/ckeditor5.js"></script>
+    <link rel="icon" href="~/areaAssets/images/betabank-favicon.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <title>Moderator | News</title>
+</head>
+<body>
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><img src="~/areaAssets/images/betabank-favicon.png" alt="betabank icon"><b>Moderator Panel</b></a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarsExampleDefault"
+                    aria-controls="navbarsExampleDefault"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item" id="Dashboard-nav-item">
+                        <a class="nav-link" href="~/Moderator/Dashboard/Index">Dashboard</a>
+                    </li>
+                    <li class="nav-item" id="News-nav-item">
+                        <a class="nav-link" href="~/Moderator/News/Index">News</a>
+                    </li>
+                    <li class="nav-item" id="Subscribers-nav-item">
+                        <a class="nav-link" href="~/Moderator/Subscribers/Index">Subscribers</a>
+                    </li>
+                    <li class="nav-item" id="NotificationMails-nav-item">
+                        <a class="nav-link" href="~/Moderator/NotificationMails/Index">Notification Mails</a>
+                    </li>
+              
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white">Welcome, AAR65</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="~/Moderator/Auth/Logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h3 class="font-weight-light">
+                        <i class="fas fa-pencil-alt"></i> Moderator
+                        </h3>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="dropdown create">
+                            <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Actions
+                            </button>
+                            <!-- Make Links display modals from below-->
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 50px, 0px);">
+                                
+                                <a class="dropdown-item" href="~/Moderator/News/Create">Create News</a>
+                                <a class="dropdown-item" href="~/Moderator/NotificationMails/SendMail">Send Mail</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        
+        <section id="main">
+            <div class="container">
+                <div class="row">
+        
+
+
+
+<div class="col-md-3">
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action" id="Dashboard-tab" href="~/Moderator/Dashboard/Index">
+            Dashboard
+        </a>
+        <a class="list-group-item list-group-item-action" id="News-tab" href="~/Moderator/News/Index">
+           News
+            <span class="badge badge-secondary badge-pill">13</span>
+        </a>
+        <a class="list-group-item list-group-item-action" id="Subscribers-tab" href="~/Moderator/Subscribers/Index">
+            Subscribers
+            <span class="badge badge-secondary badge-pill">13</span>
+        </a>
+        <a class="list-group-item list-group-item-action" id="NotificationMails-tab" href="~/Moderator/NotificationMails/Index">
+            Notification Mails
+            <span class="badge badge-secondary badge-pill">8</span>
+        </a>
+       
+    </div>
+    
+</div>
+<div class="col-md-9 mt-sm-3 mt-md-0">
+    <!--Panel for website overview-->
+    <div class="card">
+        <div class="card-header main-color-bg">
+            News
+        </div>
+        <div class="card-body">
+            <form method="post" action="/Moderator/News/Search">
+    <div class="row">
+        <div class="col-md-9">
+            <input class="form-control" placeholder="Search News..." type="text" data-val="true" data-val-required="The SearchTerm field is required." id="Search_SearchTerm" name="Search.SearchTerm" value="" />
+            <br />
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="aplly-button">Search</button>
+            <br />
+        </div>
+    </div>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8EA64PJV225Os8kuP22wVjYe3zHINgF0te0IM4tqfJby9mWYHz-7agDZ3FGPcvamlF0897soygl7M7zRum79KmW0Scp3KVofWyHAy7nuaZW6k0yhqtRIsVyStSkF1lnXEPq3pELlEZOW0-UxT9F5qzJErebRT2MtyQVUoCvds6Qphc5gu80UP2fK3dYZj8bUGA" /></form>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">First Image</th>
+                        <th scope="col">Second Image</th>
+                        <th scope="col">Created Date</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td><p class="font-weight-bold">Beta Bank Successfully Hosts Green Hackathon 2024</p></td>
+                            <td><img class="w-100" src="~/img/website-images/fcab0cc5-04cc-407c-9ae3-2f8f1f74ba76-Beta-Marathon-little.png" alt="NotFound" /></td>
+                            <td><img class="w-100" src="~/img/website-images/6ae783c7-8986-42a3-93b0-660981bec1b3-Beta-Marathon.png" alt="NotFound" /></td>
+                            <td>8/5/2024 11:57:13 PM</td>
+
+                            <td>
+                                <a class="btn btn-warning" href="~/Moderator/News/Edit/c260596a-6055-4c25-bbf7-ab412f9efd3a">Edit</a>
+                            </td>
+                            <td><a class="btn btn-light" href="~/Moderator/News/Detail/c260596a-6055-4c25-bbf7-ab412f9efd3a">View</a></td>
+                            <td>
+                                <a class="btn btn-danger newsDeleteBtn" href="~/Moderator/News/Delete/c260596a-6055-4c25-bbf7-ab412f9efd3a">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="font-weight-bold">Beta Bank Giveaway Announcement</p></td>
+                            <td><img class="w-100" src="~/img/website-images/34accbbe-5c3e-4591-88b7-855ad3cfcc1e-Beta-Giveaway-little.png" alt="NotFound" /></td>
+                            <td><img class="w-100" src="~/img/website-images/67614a20-242b-4180-a312-090190aa84f5-Beta-Giveaway.png" alt="NotFound" /></td>
+                            <td>8/5/2024 11:56:09 PM</td>
+
+                            <td>
+                                <a class="btn btn-warning" href="~/Moderator/News/Edit/248bb861-7c82-47a2-93b6-23bba4dad9fa">Edit</a>
+                            </td>
+                            <td><a class="btn btn-light" href="~/Moderator/News/Detail/248bb861-7c82-47a2-93b6-23bba4dad9fa">View</a></td>
+                            <td>
+                                <a class="btn btn-danger newsDeleteBtn" href="~/Moderator/News/Delete/248bb861-7c82-47a2-93b6-23bba4dad9fa">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="font-weight-bold">Beta Bank Unveils Beta Innovation News to Highlight</p></td>
+                            <td><img class="w-100" src="~/img/website-images/45f4c1a9-3e4d-42b4-b669-7cef7c109ff1-Beta-Innovation-little.png" alt="NotFound" /></td>
+                            <td><img class="w-100" src="~/img/website-images/ba39bfb1-a652-4d73-bb18-c696c0f7b99c-Beta-Innovation.png" alt="NotFound" /></td>
+                            <td>8/5/2024 11:55:43 PM</td>
+
+                            <td>
+                                <a class="btn btn-warning" href="~/Moderator/News/Edit/d0c2b299-22d6-4865-abf7-b527214ff103">Edit</a>
+                            </td>
+                            <td><a class="btn btn-light" href="~/Moderator/News/Detail/d0c2b299-22d6-4865-abf7-b527214ff103">View</a></td>
+                            <td>
+                                <a class="btn btn-danger newsDeleteBtn" href="~/Moderator/News/Delete/d0c2b299-22d6-4865-abf7-b527214ff103">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="font-weight-bold">Beta Bank Launches Beta Marathon</p></td>
+                            <td><img class="w-100" src="~/img/website-images/ae33fe20-9f82-48ce-b91b-8df0a1481972-Beta-Marathon-little.png" alt="NotFound" /></td>
+                            <td><img class="w-100" src="~/img/website-images/bd7c4117-b9ac-4f80-b056-c0199ee2a373-Beta-Marathon.png" alt="NotFound" /></td>
+                            <td>8/5/2024 11:55:06 PM</td>
+
+                            <td>
+                                <a class="btn btn-warning" href="~/Moderator/News/Edit/8b473ef2-f7c6-4674-9f28-e1ab7b124741">Edit</a>
+                            </td>
+                            <td><a class="btn btn-light" href="~/Moderator/News/Detail/8b473ef2-f7c6-4674-9f28-e1ab7b124741">View</a></td>
+                            <td>
+                                <a class="btn btn-danger newsDeleteBtn" href="~/Moderator/News/Delete/8b473ef2-f7c6-4674-9f28-e1ab7b124741">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="font-weight-bold">Beta Bank Offers Free Sustainability Consulting</p></td>
+                            <td><img class="w-100" src="~/img/website-images/212c7e4c-de57-44dd-9e8f-894f34fe3c88-Beta-Freeconsulting-little.png" alt="NotFound" /></td>
+                            <td><img class="w-100" src="~/img/website-images/4eeb50ef-3bdd-4c12-8996-c8f2970e137a-Beta-Freeconsulting.png" alt="NotFound" /></td>
+                            <td>8/5/2024 11:54:41 PM</td>
+
+                            <td>
+                                <a class="btn btn-warning" href="~/Moderator/News/Edit/767efb9b-f296-4891-8a65-9da7ef2717f5">Edit</a>
+                            </td>
+                            <td><a class="btn btn-light" href="~/Moderator/News/Detail/767efb9b-f296-4891-8a65-9da7ef2717f5">View</a></td>
+                            <td>
+                                <a class="btn btn-danger newsDeleteBtn" href="~/Moderator/News/Delete/767efb9b-f296-4891-8a65-9da7ef2717f5">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="font-weight-bold">Beta Bank Live Business Webinar - 12.06.2024</p></td>
+                            <td><img class="w-100" src="~/img/website-images/1d6957b9-ebe0-4047-b024-7ee77ac34a0c-Beta-webinar-little.png" alt="NotFound" /></td>
+                            <td><img class="w-100" src="~/img/website-images/892024ed-314f-49bd-ab00-ce2da574938a-Beta-webinar.png" alt="NotFound" /></td>
+                            <td>8/5/2024 11:53:59 PM</td>
+
+                            <td>
+                                <a class="btn btn-warning" href="~/Moderator/News/Edit/1ec37207-6f50-4869-91d0-6777f5bee263">Edit</a>
+                            </td>
+                            <td><a class="btn btn-light" href="~/Moderator/News/Detail/1ec37207-6f50-4869-91d0-6777f5bee263">View</a></td>
+                            <td>
+                                <a class="btn btn-danger newsDeleteBtn" href="~/Moderator/News/Delete/1ec37207-6f50-4869-91d0-6777f5bee263">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="font-weight-bold">Beta Bank Successfully Hosts Green Hackathon 2024</p></td>
+                            <td><img class="w-100" src="~/img/website-images/f598cd62-ee82-4de5-b747-c1ab255c6442-Beta-Greenhackathon-little.png" alt="NotFound" /></td>
+                            <td><img class="w-100" src="~/img/website-images/96bb1940-87a7-441c-bb65-28aa5242447c-Beta-Grennhackathon.png" alt="NotFound" /></td>
+                            <td>8/5/2024 11:53:27 PM</td>
+
+                            <td>
+                                <a class="btn btn-warning" href="~/Moderator/News/Edit/389f0d8a-8f18-4693-8a0b-e0a6c893836a">Edit</a>
+                            </td>
+                            <td><a class="btn btn-light" href="~/Moderator/News/Detail/389f0d8a-8f18-4693-8a0b-e0a6c893836a">View</a></td>
+                            <td>
+                                <a class="btn btn-danger newsDeleteBtn" href="~/Moderator/News/Delete/389f0d8a-8f18-4693-8a0b-e0a6c893836a">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="font-weight-bold">Beta Bank Giveaway Announcement</p></td>
+                            <td><img class="w-100" src="~/img/website-images/fa4199d9-54dd-408f-ab5d-63377d26a72e-Beta-Giveaway-little.png" alt="NotFound" /></td>
+                            <td><img class="w-100" src="~/img/website-images/ba20febd-5414-4be7-9164-f7b8eb4670db-Beta-Giveaway.png" alt="NotFound" /></td>
+                            <td>8/5/2024 11:45:43 PM</td>
+
+                            <td>
+                                <a class="btn btn-warning" href="~/Moderator/News/Edit/2431f004-6e5d-49ca-b58c-cda5ebeebe5a">Edit</a>
+                            </td>
+                            <td><a class="btn btn-light" href="~/Moderator/News/Detail/2431f004-6e5d-49ca-b58c-cda5ebeebe5a">View</a></td>
+                            <td>
+                                <a class="btn btn-danger newsDeleteBtn" href="~/Moderator/News/Delete/2431f004-6e5d-49ca-b58c-cda5ebeebe5a">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="font-weight-bold">Beta Bank Unveils Beta Innovation News to Highlight </p></td>
+                            <td><img class="w-100" src="~/img/website-images/c65ab23e-6490-4e76-98f1-a7e34556f6a8-Beta-Innovation-little.png" alt="NotFound" /></td>
+                            <td><img class="w-100" src="~/img/website-images/c41a248f-3286-4d18-bfae-37912ba6e9db-Beta-Innovation.png" alt="NotFound" /></td>
+                            <td>8/5/2024 4:33:45 PM</td>
+
+                            <td>
+                                <a class="btn btn-warning" href="~/Moderator/News/Edit/dea569fb-6cf8-4bb7-ae9e-ade9d98bc08e">Edit</a>
+                            </td>
+                            <td><a class="btn btn-light" href="~/Moderator/News/Detail/dea569fb-6cf8-4bb7-ae9e-ade9d98bc08e">View</a></td>
+                            <td>
+                                <a class="btn btn-danger newsDeleteBtn" href="~/Moderator/News/Delete/dea569fb-6cf8-4bb7-ae9e-ade9d98bc08e">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="font-weight-bold">Beta Bank Launches Beta Marathon</p></td>
+                            <td><img class="w-100" src="~/img/website-images/43ec0709-da43-4cb0-8909-af0ef0fc4abd-Beta-Marathon-little.png" alt="NotFound" /></td>
+                            <td><img class="w-100" src="~/img/website-images/386d31e1-3d40-475d-8024-d82777df0b6d-Beta-Marathon.png" alt="NotFound" /></td>
+                            <td>8/5/2024 4:32:37 PM</td>
+
+                            <td>
+                                <a class="btn btn-warning" href="~/Moderator/News/Edit/3bc06a39-0c39-4401-abd9-75796af0c8e4">Edit</a>
+                            </td>
+                            <td><a class="btn btn-light" href="~/Moderator/News/Detail/3bc06a39-0c39-4401-abd9-75796af0c8e4">View</a></td>
+                            <td>
+                                <a class="btn btn-danger newsDeleteBtn" href="~/Moderator/News/Delete/3bc06a39-0c39-4401-abd9-75796af0c8e4">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="font-weight-bold">Beta Bank Offers Free Sustainability Consulting</p></td>
+                            <td><img class="w-100" src="~/img/website-images/28825a02-698b-4a1c-a3a7-900b6a795c71-Beta-Freeconsulting-little.png" alt="NotFound" /></td>
+                            <td><img class="w-100" src="~/img/website-images/aa3d4589-74fd-4698-a057-163cc75e2dc9-Beta-Freeconsulting.png" alt="NotFound" /></td>
+                            <td>8/5/2024 4:30:25 PM</td>
+
+                            <td>
+                                <a class="btn btn-warning" href="~/Moderator/News/Edit/7f7644ef-0a85-4503-bfc4-4e3913779684">Edit</a>
+                            </td>
+                            <td><a class="btn btn-light" href="~/Moderator/News/Detail/7f7644ef-0a85-4503-bfc4-4e3913779684">View</a></td>
+                            <td>
+                                <a class="btn btn-danger newsDeleteBtn" href="~/Moderator/News/Delete/7f7644ef-0a85-4503-bfc4-4e3913779684">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="font-weight-bold">Beta Bank Live Business Webinar - 12.06.2024</p></td>
+                            <td><img class="w-100" src="~/img/website-images/d80e61b8-5a81-40e3-ba5e-e054e55dc8ef-Beta-webinar-little.png" alt="NotFound" /></td>
+                            <td><img class="w-100" src="~/img/website-images/5b6eda35-1bb4-4334-90f5-d399a1154407-Beta-webinar.png" alt="NotFound" /></td>
+                            <td>8/5/2024 4:27:50 PM</td>
+
+                            <td>
+                                <a class="btn btn-warning" href="~/Moderator/News/Edit/d7dbfe03-cf91-42b0-8313-048348312378">Edit</a>
+                            </td>
+                            <td><a class="btn btn-light" href="~/Moderator/News/Detail/d7dbfe03-cf91-42b0-8313-048348312378">View</a></td>
+                            <td>
+                                <a class="btn btn-danger newsDeleteBtn" href="~/Moderator/News/Delete/d7dbfe03-cf91-42b0-8313-048348312378">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p class="font-weight-bold">Beta Bank Successfully Hosts Green Hackathon 2024</p></td>
+                            <td><img class="w-100" src="~/img/website-images/a3e8accf-0fe6-4460-a544-0bf1935e058b-Beta-Greenhackathon-little.png" alt="NotFound" /></td>
+                            <td><img class="w-100" src="~/img/website-images/c29d038e-101d-4ca5-a355-dbdb02bbd6ac-Beta-Grennhackathon.png" alt="NotFound" /></td>
+                            <td>8/5/2024 4:25:56 PM</td>
+
+                            <td>
+                                <a class="btn btn-warning" href="~/Moderator/News/Edit/ca3eb37b-a281-4eef-8eb0-01413253d837">Edit</a>
+                            </td>
+                            <td><a class="btn btn-light" href="~/Moderator/News/Detail/ca3eb37b-a281-4eef-8eb0-01413253d837">View</a></td>
+                            <td>
+                                <a class="btn btn-danger newsDeleteBtn" href="~/Moderator/News/Delete/ca3eb37b-a281-4eef-8eb0-01413253d837">Delete</a>
+                            </td>
+                        </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+        </div>
+        </section>
+        <!-- footer -->
+        <footer id="footer">
+            <p>BetaBank &copy; All Rights Reserved</p>
+        </footer>
+
+        <!-- Modals -->
+        <!-- Add Page Modal -->
+
+
+
+  
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous"></script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="~/backend/admin-script.js?v=ew9VuwcXOw7lVueK2Ox8bsQ_kGPnHDDkq5Oy-zwGdJ4"></script>
+
+
+        
+    <script>
+
+
+        document.getElementById("News-tab").classList.add("active", "main-color-bg");
+        document.getElementById("News-nav-item").classList.add("active");
+
+
+
+    </script>
+
+
+ 
+
+<!-- Visual Studio Browser Link -->
+<script type="text/javascript" src="~/_vs/browserLink" async="async" id="__browserLink_initializationData" data-requestId="4bce8474db824d8899c6e5d22977d9ef" data-requestMappingFromServer="false" data-connectUrl="http://localhost:51800/665a98e2faf6449989a67a42191d19ad/browserLink"></script>
+<!-- End Browser Link -->
+<script src="~/_framework/aspnetcore-browser-refresh.js"></script></body>
+</html>
+

@@ -1,0 +1,1281 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <link href="~/areaAssets/style.css?v=4L2yMMNjenCv5YvCYGSrXej5xNr3Li91mvDUUHr0vEA" rel="stylesheet" />
+
+    <link href="~/areaAssets/card.css?v=at9SC31LGSORHr902JrxQMjIdVcOtSCzIdjVeGYWcfo" rel="stylesheet" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/42.0.0/ckeditor5.js"></script>
+
+    <link rel="icon" href="~/areaAssets/images/betabank-favicon.png" type="image/x-icon">
+    <title>Admin | Payments</title>
+</head>
+<body>
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><img src="~/areaAssets/images/betabank-favicon.png" alt="betabank icon"><b>Admin Panel</b></a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarsExampleDefault"
+                    aria-controls="navbarsExampleDefault"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+       
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" id="Dashboard-nav-item">
+                    <a class="nav-link" href="~/Admin/Dashboard/Index">Dashboard</a>
+                </li>
+
+                <li class="nav-item dropdown" id="Moderator-nav-item">
+                    <a class="nav-link dropdown-toggle-2" href="#" id="moderatorDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Moderator <i class="fas fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="moderatorDropdown">
+                        <a class="dropdown-item" href="~/Admin/News/Index">News</a>
+                        <a class="dropdown-item" href="~/Admin/Subscribers/Index">Subscribers</a>
+                        <a class="dropdown-item" href="~/Admin/NotificationMails/Index">Notification Mails</a>
+                    </div>
+                </li>
+
+                <li class="nav-item" id="User-nav-item">
+                    <a class="nav-link" href="~/Admin/User/Index">Users</a>
+                </li>
+                <li class="nav-item" id="User-nav-item">
+                    <a class="nav-link" href="~/Admin/Payment/Index">Payments</a>
+                </li>
+                <li class="nav-item" id="User-nav-item">
+                    <a class="nav-link" href="~/Admin/BankCard/Index">Cards</a>
+                </li>
+                <li class="nav-item" id="User-nav-item">
+                    <a class="nav-link" href="~/Admin/BankAccount/Index">Accounts</a>
+                </li>
+                <li class="nav-item" id="User-nav-item">
+                    <a class="nav-link" href="~/Admin/CashBack/Index">Wallets</a>
+                </li>
+                <li class="nav-item" id="User-nav-item">
+                    <a class="nav-link" href="~/Admin/Supports/Index">Supports</a>
+                </li>
+            </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white">Welcome, xeyalvj</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="~/Admin/Auth/Logout">Logout</a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h3 class="font-weight-light">
+                        <i class="fas fa-shield-alt"></i> Admin
+                        </h3>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="dropdown create">
+                            <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Actions
+                            </button>
+                            <!-- Make Links display modals from below-->
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 50px, 0px);">
+
+                                <a class="dropdown-item" href="~/Admin/News/Create">Create News</a>
+                                <a class="dropdown-item" href="~/Admin/NotificationMails/SendMail">Send Mail</a>
+                            <a class="dropdown-item" href="~/Admin/Subscribers/CreateSubscriber">Create Subscriber</a>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+      
+
+        <section id="main">
+            <div class="container">
+                <div class="row">
+                    
+
+<div class="col-md-3">
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action" id="Dashboard-tab" href="~/Admin/Dashboard/Index">
+            Dashboard
+        </a>
+        <a class="list-group-item list-group-item-action" id="News-tab" href="~/Admin/News/Index">
+           News
+            <span class="badge badge-secondary badge-pill">13</span>
+        </a>
+        <a class="list-group-item list-group-item-action" id="Subscribers-tab" href="~/Admin/Subscribers/Index">
+            Subscribers
+            <span class="badge badge-secondary badge-pill">13</span>
+        </a>
+        <a class="list-group-item list-group-item-action" id="NotificationMails-tab" href="~/Admin/NotificationMails/Index">
+            Notification Mails
+            <span class="badge badge-secondary badge-pill">8</span>
+        </a>
+        <a class="list-group-item list-group-item-action" id="Supports-tab" href="~/Admin/Supports/Index">
+            Support Messages
+            <span class="badge badge-secondary badge-pill">13</span>
+        </a>
+        <a class="list-group-item list-group-item-action" id="Users-tab" href="~/Admin/User/Index">
+            Users
+            <span class="badge badge-secondary badge-pill">4</span>
+        </a>
+
+        <a class="list-group-item list-group-item-action" id="Payments-tab" href="~/Admin/Payment/Index">
+            Payments
+            <span class="badge badge-secondary badge-pill">43</span>
+        </a>
+        <a class="list-group-item list-group-item-action" id="BankCards-tab" href="~/Admin/BankCard/Index">
+            BankCards
+            <span class="badge badge-secondary badge-pill">8</span>
+        </a>
+        <a class="list-group-item list-group-item-action" id="BankAccounts-tab" href="~/Admin/BankAccount/Index">
+            Accounts
+            <span class="badge badge-secondary badge-pill">4</span>
+        </a>
+        <a class="list-group-item list-group-item-action" id="Wallets-tab" href="~/Admin/CashBack/Index">
+            Wallets
+            <span class="badge badge-secondary badge-pill">4</span>
+        </a>
+        
+       
+       
+    </div>
+    
+</div>
+<div class="col-md-9 mt-sm-3 mt-md-0">
+    <!--Panel for website overview-->
+    <div class="card">
+        <div class="card-header main-color-bg">
+            Payments
+        </div>
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Paid By</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Commission</th>
+                        <th scope="col">Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/areaAssets/images/Cashback-Icon.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        CashBack
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Bank Account
+                                    </a>
+                            </td>
+                            <td>$56.00</td>
+                            <td>$0.56</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/f8e4348f-cdfb-4212-8233-d854188ad42a">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;">
+                                        <img src="~/img/icon/BakiKart-Icon-Green.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        BakuCard
+                                    </a>
+                            </td>
+                            <td>$6.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/7102294d-4105-47d9-b566-4585a530dd2a">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/img/Subscriptions/Azeriqaz.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Utility
+                                    </a>
+                            </td>
+                            <td>$6.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/b13d1cd8-a44d-4707-8c75-236e506423cb">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640239809341">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *9341
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;">
+                                            <img src="~/img/Banks/Birbank.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                            *6012
+                                        </a>
+                            </td>
+                            <td>$45.00</td>
+                            <td>$0.50</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/e599aa1f-0572-4e1c-a4cf-d43f28e3926a">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/img/Subscriptions/AlfaNet.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Internet
+                                    </a>
+                            </td>
+                            <td>$5.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/7dcb397c-a595-4f16-bca1-85166d76fd96">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;">
+                                            <img src="~/img/Banks/LeoBank.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                            *9871
+                                        </a>
+                            </td>
+                            <td>$34.00</td>
+                            <td>$0.50</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/dcaa16ea-df9f-4cec-9d54-2c3be142e246">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/img/images/Nar.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Nar
+                                    </a>
+                            </td>
+                            <td>$25.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/4b814662-f07f-4f66-88a2-d4f831c6f4ff">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640239809341">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *9341
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                            <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *8831
+                                        </a>
+                            </td>
+                            <td>$500.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/d54a8354-5a03-4c76-99c3-02211f612636">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Bank Account
+                                    </a>
+                            </td>
+                            <td>$60.00</td>
+                            <td>$0.60</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/afbe07fa-c967-4dbd-9a4d-1924cfdf279f">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;">
+                                        <img src="~/img/icon/BakiKart-Icon-Green.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        BakuCard
+                                    </a>
+                            </td>
+                            <td>$25.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/4d2d7116-3b05-4003-adba-2d54ee4500a2">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;">
+                                        <img src="~/img/icon/BakiKart-Icon-Green.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        BakuCard
+                                    </a>
+                            </td>
+                            <td>$25.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/194f5046-2141-45bc-b75a-ac7ce6aafc11">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Bank Account
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;">
+                                        <img src="~/img/icon/BakiKart-Icon-Green.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        BakuCard
+                                    </a>
+                            </td>
+                            <td>$50.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/93f5372f-bfa6-4e96-98c7-2aa5cbce195a">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *2996
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                    <a style="color:#FFFFFF;">
+                                        <img src="~/img/icon/BakiKart-Icon-Green.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        BakuCard
+                                    </a>
+                            </td>
+                            <td>$50.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/dc8eaa78-f193-4adb-b33e-0fe49bde7aa4">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *2996
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/img/Subscriptions/AzerSu.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Utility
+                                    </a>
+                            </td>
+                            <td>$5.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/b5131719-1d6c-4e29-ae03-6d1756f7f596">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;">
+                                            <img src="~/img/Banks/Birbank.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                            *6012
+                                        </a>
+                            </td>
+                            <td>$10.00</td>
+                            <td>$0.50</td>
+                            <td>
+                                    <span class="badge bg-danger">Failed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/2caf42a7-60e5-4e88-b435-4cc32eaee64c">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *2996
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;">
+                                            <img src="~/img/Banks/Birbank.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                            *6012
+                                        </a>
+                            </td>
+                            <td>$60.00</td>
+                            <td>$0.50</td>
+                            <td>
+                                    <span class="badge bg-danger">Failed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/e92d3280-a6f8-4df5-a336-6bc54c5d34e6">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *2996
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;">
+                                            <img src="~/img/Banks/Birbank.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                            *6012
+                                        </a>
+                            </td>
+                            <td>$60.00</td>
+                            <td>$0.50</td>
+                            <td>
+                                    <span class="badge bg-danger">Failed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/b783c9ad-2f0a-4894-aeeb-56fe8c567cef">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *2996
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                            <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *8831
+                                        </a>
+                            </td>
+                            <td>$34.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/99e59e8a-b9aa-4c33-b94a-4caa56e36619">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *2996
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640239809341">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *9341
+                                        </a>
+                            </td>
+                            <td>$5.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/6381d826-f45a-4317-b625-3203357babcd">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640239809341">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *9341
+                                        </a>
+                            </td>
+                            <td>$2,312.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/52477e26-4966-451c-b23f-bfe2d23b848a">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640239809341">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *9341
+                                        </a>
+                            </td>
+                            <td>$2,312.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/89702813-ecc9-45ea-ab5e-e15b1df397fc">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640239809341">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *9341
+                                        </a>
+                            </td>
+                            <td>$2,312.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/dd156a52-4d79-4643-9992-4027cbd51b64">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Bank Account
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                            <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *8831
+                                        </a>
+                            </td>
+                            <td>$3.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/752d069c-80b4-48f0-a456-25ac38cc2abd">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                            <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *2996
+                                        </a>
+                            </td>
+                            <td>$50.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/4a35b082-e5d0-425b-be92-901e622526ec">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                            <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *2996
+                                        </a>
+                            </td>
+                            <td>$50.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/f15de304-a37d-4759-9d03-5219892cbb91">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                            <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *2996
+                                        </a>
+                            </td>
+                            <td>$50.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/e8999ac6-ca8f-410e-a6c9-d01b2bf974e8">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647765587159">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *7159
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                            <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *2996
+                                        </a>
+                            </td>
+                            <td>$5.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/cb89eae3-62bc-4dde-81c2-25e37f01fb61">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442643010606945">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *6945
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                            <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *2996
+                                        </a>
+                            </td>
+                            <td>$5.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/aad33f68-33d8-4d62-acc6-b29fd43f07bb">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Bank Account
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                            <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *2996
+                                        </a>
+                            </td>
+                            <td>$5.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/f40826fa-3e7f-4c60-af86-3003b813a918">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/areaAssets/images/Cashback-Icon.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        CashBack
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                            <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *2996
+                                        </a>
+                            </td>
+                            <td>$5.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/1990e6b9-793f-49d7-9b3e-5379d926c9af">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Bank Account
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442648175864421">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *4421
+                                        </a>
+                            </td>
+                            <td>$60.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/cb08ddfe-855d-4b55-bcd5-59addbb07359">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640239809341">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *9341
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442648175864421">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *4421
+                                        </a>
+                            </td>
+                            <td>$60.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/0993c1e8-e0f3-47a6-a882-0f03757bb7db">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442648175864421">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *4421
+                                        </a>
+                            </td>
+                            <td>$60.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/4424be60-c166-4523-bbd0-a343a8a4cb5e">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442643010606945">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *6945
+                                        </a>
+                            </td>
+                            <td>$60.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/1878d6ae-461d-4df3-8ee4-5d295f50390b">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Bank Account
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442643010606945">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *6945
+                                        </a>
+                            </td>
+                            <td>$60.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/b5dcd40a-f604-482d-9efe-ce1658c3fedf">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Bank Account
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442643010606945">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *6945
+                                        </a>
+                            </td>
+                            <td>$60.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/e319ff78-81ad-4873-89a1-8a19e213da8c">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442640834658831">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *8831
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442643010606945">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *6945
+                                        </a>
+                            </td>
+                            <td>$60.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/0e6c4083-5478-47ea-9e14-2748a84956ec">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *2996
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442643010606945">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *6945
+                                        </a>
+                            </td>
+                            <td>$60.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/03cbe194-9904-4949-b8bb-8fae1398b691">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647109432996">
+                                        <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *2996
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442643010606945">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *6945
+                                        </a>
+                            </td>
+                            <td>$50.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/7f229d76-11ef-439c-b69b-5112cc577d55">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/areaAssets/images/Cashback-Icon.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        CashBack
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442648175864421">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *4421
+                                        </a>
+                            </td>
+                            <td>$14.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/c7b6b2bc-5f74-410a-9803-7785e7e6002a">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442643010606945">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *6945
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442647765587159">
+                                            <img src="~/areaAssets/images/debit-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *7159
+                                        </a>
+                            </td>
+                            <td>$25,000.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/f81ea315-a2d8-46d3-9552-8e0426a155b6">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442643010606945">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *6945
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                        <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442648175864421">
+                                            <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                            *4421
+                                        </a>
+                            </td>
+                            <td>$2,500.00</td>
+                            <td>$0.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/414eacb4-14b7-40fd-8eaf-af0d98143e75">Details</a></td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                    <a style="color:#FFFFFF;" href="~/Admin/BankCard/Detail/6442643010606945">
+                                        <img src="~/areaAssets/images/betacard-Easy.png" class="img-fluid " style="width: 52.5px; height: 30px; object-fit: cover; border-radius:2px;">
+                                    *6945
+                                    </a>
+
+                                
+                            </td>
+                            <td>
+                                    <a href="#" style="color:#FFFFFF;">
+                                        <img src="~/areaAssets/images/Bank-Account.png" class="img-fluid " style="width: 45px; height: 45px; object-fit: cover;">
+                                        Bank Account
+                                    </a>
+                            </td>
+                            <td>$2,500.00</td>
+                            <td>$25.00</td>
+                            <td>
+                                    <span class="badge bg-success text-dark">Completed</span>
+                            </td>
+                            <td><a class="btn btn-warning" href="~/Admin/Payment/Detail/90552ac6-af23-43f7-8647-4d0cc91d48c7">Details</a></td>
+
+                        </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+                </div>
+            </div>
+        </section>
+        <!-- footer -->
+        <footer id="footer">
+            <p>BetaBank &copy; All Rights Reserved</p>
+        </footer>
+
+        <!-- Modals -->
+        <!-- Add Page Modal -->
+        <div class="modal fade" id="addPage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add Page</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Page Title</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Page Title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Page Body</label>
+                                    <textarea name="editor1" class="form-control" id="exampleFormControlTextarea1" placeholder="Page Body..." rows=""></textarea>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Published
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Meta Tags</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Add Some Tags...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlInput1">Meta Description</label>
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Add Meta Description">
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+            CKEDITOR.replace('editor1');
+        </script>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                crossorigin="anonymous"></script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="~/backend/admin-script.js?v=ew9VuwcXOw7lVueK2Ox8bsQ_kGPnHDDkq5Oy-zwGdJ4"></script>
+
+
+        
+    <script>
+
+        document.getElementById("Payments-tab").classList.add("active", "main-color-bg");
+
+    </script>
+
+
+
+<!-- Visual Studio Browser Link -->
+<script type="text/javascript" src="~/_vs/browserLink" async="async" id="__browserLink_initializationData" data-requestId="13171cc65b144c6184acfdd33bd5af79" data-requestMappingFromServer="false" data-connectUrl="http://localhost:51800/665a98e2faf6449989a67a42191d19ad/browserLink"></script>
+<!-- End Browser Link -->
+<script src="~/_framework/aspnetcore-browser-refresh.js"></script></body>
+</html>
+
